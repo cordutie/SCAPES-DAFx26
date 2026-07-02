@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCAPES | DAFx 2026</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body style="background-color: var(--castanya);">
+    <button class="dev-toggle" id="dev-toggle" type="button">Dev: off</button>
+
+<!-- HEAD SECTION ------------------------------------------------------------------------------------------------->
+    <div class="section section-castanya">
+        <div class="box" style="text-align: center; min-height: 100vh; display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; flex-shrink: 0;">
+                <div style="display: flex; gap: 1.5rem; align-items: center;">
+                    <img src="assets/img/upf_logo.png" alt="UPF" class="logo-white" style="max-height: 50px;">
+                    <img src="assets/img/mtg_logo.png" alt="MTG" class="logo-white" style="max-height: 50px;">
+                </div>
+                <img src="assets/img/dafx2026.png" alt="DAFx 2026" class="logo-white" style="max-height: 50px;">
+            </div>
+
+            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+
+                <h1 style="font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 1.5rem;">
+                    SCAPES: Semantically Conditioned Autoregressive Prior for Environmental Sounds
+                </h1>
+
+                <p class="paper-authors">
+                    <a href="https://cordutie.github.io/">Esteban Gutiérrez</a><sup>1</sup>,
+                    <strong>Lonce Wyse</strong><sup>1</sup>,
+                    <strong>Frederic Font</strong><sup>1</sup>,
+                    <strong>Xavier Serra</strong><sup>1</sup>
+                </p>
+
+                <p class="paper-affiliation">
+                    <sup>1</sup> <em>Music Technology Group, Universitat Pompeu Fabra, Barcelona</em>
+                </p>
+
+                <div class="button-group">
+                    <a href="#" class="button button-filled">Paper</a>
+                    <a href="#" class="button button-filled">Code</a>
+                    <a href="#" class="button button-filled">Weights</a>
+                    <a href="#" class="button button-filled">Demo</a>
+                    <a href="#" class="button button-filled">BibTeX</a>
+                </div>
+
+                <!-- <h1>Abstract</h1> -->
+                <p class="paper-abstract">
+                    As generative audio models grow in complexity, the computational and ecological costs of synthesizing everyday sounds have become increasingly prohibitive, often requiring industrial-scale resources and massive datasets. In this paper, we present SCAPES: a Semantically Conditioned Autoregressive Prior for Environmental Sounds. SCAPES is a lightweight, resource-efficient generative model designed to synthesize high-fidelity environmental textures through high-level semantic control. By operating on the continuous latent manifold of a neural audio codec, our approach bypasses the rigid structural constraints inherent to discrete tokenization. We propose a segmentation strategy that decomposes audio into overlapping segments, enabling a Continuous Normalizing Flow (CNF) to model the evolution of  latent trajectories using Flow Matching. Our experiments demonstrate that a 36-million parameter instance of SCAPES can be trained on limited, uncurated datasets using a single consumer-grade GPU. Notably, training convergence is achieved in a duration similar to double the lenght of the source audio itself, yielding high-fidelity results that maintain robust long-term stability and semantic adherence. Furthermore, we showcase the model's capacity for smooth semantic interpolation, providing a flexible and accessible tool for open research and creative sound design.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="section section-white section-vcentered" id="body">
+        <div class="box">
+            <h1>What is SCAPES?</h1>
+            <p class="paper-abstract">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl.
+            </p>
+        </div>
+    </div>
+
+    <!-- SOUND EXAMPLES -->
+    <div class="section section-white section-vcentered" id="examples">
+        <div class="box">
+            <h1>Sound Examples</h1>
+            <p class="paper-abstract">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl.
+            </p>
+        </div>
+    </div>
+
+    <!-- ACKNOWLEDGEMENTS -->
+    <div class="section section-white section-vcentered">
+        <div class="box">
+            <h1>Acknowledgements</h1>
+            <p>
+                This work has been supported by the project "IA y Música: Cátedra en Inteligencia Artificial y Música (TSI-100929-2023-1)", funded by the "Secretaría de Estado de Digitalización e Inteligencia Artificial and the Unión Europea-Next Generation EU". Additionally, we would like to express my sincere gratitude to Daniela Quimis, Clara Charbonnier, Jan Pol Obrador, Marcel Manzano, Omar Hamze, Jordi Fabregat, Eduard Herrera, and Eric Mas, for their valuable insights into extending the model to diverse audio sources, exploring alternative training techniques, and helping shape the design of an intuitive demonstration of SCAPES.
+            </p>
+            <div style="text-align: center; margin-top: 1rem;">
+                <img src="assets/img/chair.png" alt="Funding" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="assets/js/dev-toggle.js"></script>
+    <script src="assets/js/bibtex-loader.js"></script>
+</body>
+
+</html>

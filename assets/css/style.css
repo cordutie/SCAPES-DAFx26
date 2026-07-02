@@ -1,0 +1,603 @@
+/* RESET: Remove default spacing. This is applied to all elements in the webpage. */
+* {
+    margin:  0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* COLOR PALETTE */
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --castanya: #b44548;
+    --brick: #bd817e;
+    --lino: #fff4f3;
+    --pale: #f3eed9;
+    --dev: transparent;
+    --page-width: 960px;
+}
+
+:root.dev-on {
+    --dev: #FFEE8C;
+}
+
+/* BASE STYLES */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: var(--pale);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+}
+
+h1 img, h2 img, h3 img {
+    vertical-align: middle;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    font-weight: inherit;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 1.25rem;
+}
+
+li {
+    margin-bottom: 0.35rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    text-shadow: 0 0 1px;
+    text-decoration: none;
+}
+
+.dev-toggle {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 999;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #111;
+    color: #fff;
+    cursor: pointer;
+}
+
+.dev-toggle:hover {
+    background: #222;
+}
+
+.profile-img {
+    max-width: clamp(100px, 50vw, 300px);
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.video-embed {
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 0;
+    margin-bottom: 1rem;
+}
+
+.img-wrap {
+    float: right;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+    max-width: 300px;
+}
+
+.img-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 960px) {
+    .img-wrap {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 200px;
+    }
+}
+
+/* NAVBAR */
+:root {
+    --navbar-height: 3rem;
+}
+
+.navbar {
+    top: 0;
+    width: 100%;
+    background-color: var(--castanya);
+    padding: 0rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    column-gap: 2rem;
+    row-gap: 0.5rem;
+    min-height: var(--navbar-height);
+    border: 1px solid var(--dev);
+    z-index: 100;
+}
+
+.navbar a {
+    color: var(--white);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.2s;
+}
+
+.navbar a:hover {
+    text-shadow: 0 0 1px var(--lino);
+    text-decoration: none;
+}
+
+.nav-divider {
+    height: 1px;
+    width: 50%;
+    margin: 0rem auto 0;
+    background-color: var(--lino);
+    opacity: 1;
+}
+
+/* NEWS LIST */
+.news-list {
+    border-top: 1px solid var(--lino);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.news-item {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    gap: 2rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--lino);
+}
+
+.news-date {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.news-content {
+    font-size: 1rem;
+}
+
+.news-content p {
+    margin-bottom: 0rem;
+}
+
+@media (max-width: 960px) {
+    .news-item {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+}
+
+/* CV LIST */
+.cv-list {
+    border-top: 1px solid var(--brick);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cv-item {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    gap: 2rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--brick);
+}
+
+.cv-date {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.cv-content {
+    font-size: 1rem;
+}
+
+.cv-content p {
+    margin-bottom: 0rem;
+}
+
+@media (max-width: 960px) {
+    .cv-item {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+}
+
+/* PAPERS LIST */
+.papers-list {
+    border-top: 1px solid var(--brick);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.papers-item {
+    display: grid;
+    grid-template-columns: 10% 1fr;
+    gap: 2rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--brick);
+}
+
+.papers-date {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.papers-content {
+    font-size: 1rem;
+}
+
+.papers-content p {
+    margin-bottom: 0rem;
+}
+
+@media (max-width: 960px) {
+    .papers-item {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+}
+
+/* PROJECT CARDS */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.project-card {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--brick);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    color: #ffffff;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+}
+
+.project-card-overlay {
+    position: relative;
+    padding: 1rem;
+}
+
+.project-card-overlay p {
+    font-weight: normal;
+}
+
+@media (max-width: 960px) {
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* BOX ENVIRONMENTS */
+.box {
+    width: 100%;
+    max-width: var(--page-width);
+    margin: 0rem auto;
+    padding: 2rem;
+    border: 1px solid var(--dev);
+    background-color: transparent;
+}
+
+.box-split {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.box-col {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid var(--dev);
+}
+
+.box-col-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+@media (min-width: 1920px) {
+    .box {
+        max-width: 50vw;
+    }
+}
+
+@media (max-width: 960px) {
+    .box-split {
+        flex-direction: column;
+    }
+}
+
+/* SECTION ENVIRONMENTS */
+.section {
+    min-height: 50vh;
+    border-bottom: 1px solid var(--dev);
+}
+
+.section-fullscreen {
+    height: 100vh;
+}
+
+.section-vcentered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-castanya {
+    background-color: var(--castanya);
+    color: #ffffff;
+}
+
+.section-brick {
+    background-color: var(--brick);
+    color: #ffffff;
+}
+
+.section-lino {
+    background-color: var(--lino);
+    color: #000000;
+}
+
+.section-pale {
+    background-color: var(--pale);
+    color: #000000;
+}
+
+.section-white {
+    background-color: var(--white);
+    color: #000000;
+}
+
+/* BUTTON STYLES */
+.button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    background-color: transparent;
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.button:active {
+    background-color: rgba(0, 0, 0, 0.12);
+}
+
+/* BIBTEX BOX */
+.bibtex-box {
+    background-color: var(--brick);
+    max-width: 720px;
+    overflow-x: auto;
+    padding: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    position: relative;
+}
+
+.bibtex-box:hover {
+    background-color: #c78d8a;
+}
+
+.bibtex-box:active {
+    background-color: #aa7572;
+}
+
+.bibtex-box pre {
+    color: var(--lino);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0;
+}
+
+/* PAPER-SPECIFIC STYLES */
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.button-filled {
+    background-color: var(--brick);
+    border-color: var(--brick);
+    color: var(--white);
+    border-radius: 4px;
+}
+
+.button-filled:hover {
+    background-color: #c78d8a;
+}
+
+.logo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.logo-row img {
+    max-height: 60px;
+    width: auto;
+}
+
+.logo-white {
+    filter: brightness(0) invert(1);
+}
+
+.paper-authors {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.paper-authors a {
+    font-weight: 700;
+}
+
+.paper-affiliation {
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+.paper-abstract {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.section-number {
+    display: inline-block;
+    font-weight: 700;
+}
+
+figure {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.85;
+    font-style: italic;
+}
+
+.audio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.audio-card {
+    background-color: rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: center;
+}
+
+.audio-card p {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.audio-card audio {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+th, td {
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+th {
+    font-weight: 700;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+details {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+details summary {
+    cursor: pointer;
+    font-weight: 700;
+}
+
+details[open] summary {
+    margin-bottom: 0.75rem;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.15;
+    margin: 1.5rem 0;
+}
