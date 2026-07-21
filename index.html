@@ -8,50 +8,55 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body style="background-color: var(--castanya);">
+<body style="background-color: var(--white);">
     <button class="dev-toggle" id="dev-toggle" type="button">Dev: off</button>
 
 <!-- HEAD SECTION ------------------------------------------------------------------------------------------------->
-    <div class="section section-castanya">
-        <div class="box" style="text-align: center; min-height: 100vh; display: flex; flex-direction: column;">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; flex-shrink: 0;">
-                <div style="display: flex; gap: 1.5rem; align-items: center;">
-                    <img src="assets/img/upf_logo.png" alt="UPF" class="logo-white" style="max-height: 50px;">
-                    <img src="assets/img/mtg_logo.png" alt="MTG" class="logo-white" style="max-height: 50px;">
+    <div class="section section-castanya section-fullscreen section-vcentered">
+        <div class="box" style="text-align: center;">
+            <div class="box-split" style="margin-bottom: 2rem;">
+                <div class="box-col box-col-center" style="flex-direction: row; gap: 1rem;">
+                    <img src="assets/img/upf_logo.png" alt="UPF" class="logo-white" style="max-height: 60px; width: auto;">
+                    <img src="assets/img/mtg_logo.png" alt="MTG" class="logo-white" style="max-height: 60px; width: auto;">
                 </div>
-                <img src="assets/img/dafx2026.png" alt="DAFx 2026" class="logo-white" style="max-height: 50px;">
+                <div class="box-col box-col-center">
+                    <img src="assets/img/dafx2026.png" alt="DAFx 2026" class="logo-white" style="max-height: 60px; width: auto;">
+                </div>
+            </div> 
+
+            <h1 style="font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 1.5rem;">
+                SCAPES: Semantically Conditioned Autoregressive Prior for Environmental Sounds
+            </h1>
+
+            <p class="paper-authors">
+                <a href="https://cordutie.github.io/">Esteban Gutiérrez</a>,
+                <a href="https://lonce.org/">Lonce Wyse</a>,
+                <a href="https://ffont.github.io/">Frederic Font</a>,
+                <a href="https://www.upf.edu/web/xavier-serra">Xavier Serra</a>
+            </p>
+
+            <p class="paper-affiliation">
+                <em>Music Technology Group, Universitat Pompeu Fabra, Barcelona</em>
+            </p>
+
+            <div class="button-group">
+                <a href="#" class="button">Paper</a>
+                <a href="https://github.com/cordutie/SCAPES" class="button">Code</a>
+                <a href="https://huggingface.co/cordutie/SCAPES-models" class="button">Weights</a>
+                <a href="https://huggingface.co/spaces/cordutie/SCAPES-demo" class="button">Demo</a>
+                <a href="#" class="button">BibTeX</a>
+                <a href="https://cordutie.github.io/projects/scapes.html" class="button">Project Page</a>
+            </div>
+            
+            <div class="box">
+            <i>
+                This webpage provides supplementary materials for our paper "SCAPES: Semantically Conditioned Autoregressive Prior for Environmental Sounds", presented at DAFx 2026. For further details see the project page.
+            </i>
             </div>
 
-            <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
-
-                <h1 style="font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 1.5rem;">
-                    SCAPES: Semantically Conditioned Autoregressive Prior for Environmental Sounds
-                </h1>
-
-                <p class="paper-authors">
-                    <a href="https://cordutie.github.io/">Esteban Gutiérrez</a>,
-                    <a href="https://lonce.org/">Lonce Wyse</a>,
-                    <a href="https://ffont.github.io/">Frederic Font</a>,
-                    <a href="https://www.upf.edu/web/xavier-serra">Xavier Serra</a>
-                </p>
-
-                <p class="paper-affiliation">
-                    <em>Music Technology Group, Universitat Pompeu Fabra, Barcelona</em>
-                </p>
-
-                <div class="button-group">
-                    <a href="#" class="button button-filled">Paper</a>
-                    <a href="https://github.com/cordutie/SCAPES" class="button button-filled">Code</a>
-                    <a href="https://huggingface.co/cordutie/SCAPES-models" class="button button-filled">Weights</a>
-                    <a href="https://huggingface.co/spaces/cordutie/SCAPES-demo" class="button button-filled">Demo</a>
-                    <a href="#" class="button button-filled">BibTeX</a>
-                </div>
-
-                <!-- <h1>Abstract</h1> -->
-                <p class="paper-abstract">
-                    As generative audio models grow in complexity, the computational and ecological costs of synthesizing everyday sounds have become increasingly prohibitive, often requiring industrial-scale resources and massive datasets. In this paper, we present SCAPES: a Semantically Conditioned Autoregressive Prior for Environmental Sounds. SCAPES is a lightweight, resource-efficient generative model designed to synthesize high-fidelity environmental textures through high-level semantic control. By operating on the continuous latent manifold of a neural audio codec, our approach bypasses the rigid structural constraints inherent to discrete tokenization. We propose a segmentation strategy that decomposes audio into overlapping segments, enabling a Continuous Normalizing Flow (CNF) to model the evolution of  latent trajectories using Flow Matching. Our experiments demonstrate that a 36-million parameter instance of SCAPES can be trained on limited, uncurated datasets using a single consumer-grade GPU. Notably, training convergence is achieved in a duration similar to double the lenght of the source audio itself, yielding high-fidelity results that maintain robust long-term stability and semantic adherence. Furthermore, we showcase the model's capacity for smooth semantic interpolation, providing a flexible and accessible tool for open research and creative sound design.
-                </p>
-            </div>
+            <p class="paper-abstract">
+                <b>Abstract:</b> As generative audio models grow in complexity, the computational and ecological costs of synthesizing everyday sounds have become increasingly prohibitive, often requiring industrial-scale resources and massive datasets. In this paper, we present SCAPES: a Semantically Conditioned Autoregressive Prior for Environmental Sounds. SCAPES is a lightweight, resource-efficient generative model designed to synthesize high-fidelity environmental textures through high-level semantic control. By operating on the continuous latent manifold of a neural audio codec, our approach bypasses the rigid structural constraints inherent to discrete tokenization. We propose a segmentation strategy that decomposes audio into overlapping segments, enabling a Continuous Normalizing Flow (CNF) to model the evolution of  latent trajectories using Flow Matching. Our experiments demonstrate that a 36-million parameter instance of SCAPES can be trained on limited, uncurated datasets using a single consumer-grade GPU. Notably, training convergence is achieved in a duration similar to double the lenght of the source audio itself, yielding high-fidelity results that maintain robust long-term stability and semantic adherence. Furthermore, we showcase the model's capacity for smooth semantic interpolation, providing a flexible and accessible tool for open research and creative sound design.
+            </p>
         </div>
     </div>
 

@@ -7,6 +7,7 @@
 
 /* COLOR PALETTE */
 :root {
+    --upf: #C8102E;
     --black: #000000;
     --white: #ffffff;
     --castanya: #b44548;
@@ -359,9 +360,15 @@ a:hover {
     }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 540px) {
     .box-split {
         flex-direction: column;
+    }
+}
+
+@media (max-width: 960px) {
+    .box {
+        padding: 2rem 1rem;
     }
 }
 
@@ -372,7 +379,7 @@ a:hover {
 }
 
 .section-fullscreen {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .section-vcentered {
@@ -384,6 +391,11 @@ a:hover {
 
 .section-castanya {
     background-color: var(--castanya);
+    color: #ffffff;
+}
+
+.section-upf {
+    background-color: var(--upf);
     color: #ffffff;
 }
 
@@ -465,15 +477,26 @@ a:hover {
     margin: 1.5rem 0;
 }
 
-.button-filled {
+.button-brick {
     background-color: var(--brick);
     border-color: var(--brick);
     color: var(--white);
     border-radius: 4px;
 }
 
-.button-filled:hover {
+.button-brick:hover {
     background-color: #c78d8a;
+}
+
+.button-lino {
+    background-color: var(--lino);
+    border-color: var(--black);
+    color: var(--black);
+    border-radius: 4px;
+}
+
+.button-lino:hover {
+    background-color: var(--white);
 }
 
 .logo-row {
