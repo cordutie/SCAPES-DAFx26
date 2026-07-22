@@ -61,22 +61,164 @@
     </div>
 
     <!-- BODY -->
-    <div class="section section-white section-vcentered" id="body">
+    <div class="section section-white" id="body">
         <div class="box">
             <h1>What is SCAPES?</h1>
             <p class="paper-abstract">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl.
+                <b>SCAPES</b> (Semantically Conditioned Autoregressive Prior for Environmental Sounds) is a generative audio framework for high-fidelity environmental texture synthesis with semantic control. It operates on the continuous latent manifold of a neural audio codec, using a Transformer-based Continuous Normalizing Flow trained via Flow Matching. A CLAP semantic embedding conditions generation at fine temporal resolution, enabling intuitive control over the output.
             </p>
+            <ul style="margin-bottom: 1.5rem; padding-left: 1.25rem;">
+                <li><b>Semantic control</b> with CLAP-based conditioning (no manual labels)</li>
+                <li><b>Continuous latent generation</b> (no token quantization bottleneck)</li>
+                <li><b>Efficient training</b> on consumer GPUs (~1 hour on a single RTX 4090)</li>
+                <li><b>Long-term texture stability</b> in autoregressive generation</li>
+                <li><b>Smooth semantic interpolation</b> between environmental classes</li>
+            </ul>
+            <figure>
+                <img src="assets/img/architecture.svg" alt="SCAPES inference architecture" style="max-width: 540px;">
+                <figcaption style="margin-left: 4rem; margin-right: 4rem;">Inference architecture. The Transformer-based vector field is conditioned on past atomic memory via cross-attention and semantic context via AdaLN. An ODE solver integrates the field from noise to target atom.</figcaption>
+            </figure>
+            <!-- <p class="paper-abstract">
+                At its core, SCAPES segments audio into overlapping <i>atoms</i> (0.22 s segments at 10 Hz control rate), each annotated with a semantic embedding. A Transformer-based CNF learns to predict each atom from its preceding context and conditioning label. At just 36 million parameters, the model generates indefinite, non-repeating textures from a single embedding, performs resynthesis, and supports smooth interpolation between sound classes through the continuous latent space.
+            </p>
+            <figure>
+                <img src="assets/img/dataprep.svg" alt="Data preparation pipeline" style="max-width: 540px;">
+                <figcaption style="margin-left: 4rem; margin-right: 4rem;">Source audio is decomposed into overlapping atoms, encoded via EnCodec, and annotated with CLAP semantic embeddings derived from local context windows.</figcaption>
+            </figure> -->
+        </div>
+    </div>
+
+    <!-- DEMO -->
+    <div class="section section-pale" id="demo">
+        <div class="box">
+            <h1>Demo</h1>
+            <p class="paper-abstract">
+                Try SCAPES directly in your browser. The interactive demo lets you generate environmental sounds from semantic labels, resynthesize existing audio, and compose your own soundscapes by exploring smooth interpolations between sound classes.
+            </p>
+            <p class="paper-abstract">
+                Two models are available: the one used to evaluate the paper, and a second model trained on curated sounds by the artist duo <a href="https://www.instagram.com/dotzerosix/">dotzerosix</a>, composed by musicians
+                <a href="https://www.instagram.com/taniacortesbecerra/">Tania Cortés</a> and
+                <a href="https://www.instagram.com/ffnnttcchh/">Oscar Bahamonde</a>.
+            </p>
+            <div style="text-align: center; margin: 1.5rem 0;">
+                <a href="https://huggingface.co/spaces/cordutie/SCAPES-demo"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Try%20the%20Demo-yellow?style=for-the-badge" alt="HuggingFace Spaces"></a>
+            </div>
+            <p class="paper-abstract">
+                To train your own SCAPES model, we provide two Colab tutorials. The <b>simplified</b> one walks through training and generation with default parameters, while the <b>full</b> tutorial covers the complete pipeline including data preparation, custom training loops, and evaluation.
+            </p>
+
+<div align="center">
+  <table style="border-collapse: collapse; border: none;">
+    <tr>
+      <td style="text-align: right; padding-right: 4px; border: none;">
+        <b>Simplified Tutorial:</b>
+      </td>
+      <td style="border: none;">
+        <a href="https://colab.research.google.com/github/cordutie/SCAPES/blob/main/quickstart/tutorial_simplified.ipynb">
+          <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Simplified Tutorial">
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: right; padding-right: 4px; border: none;">
+        <b>Full Tutorial:</b>
+      </td>
+      <td style="border: none;">
+        <a href="https://colab.research.google.com/github/cordutie/SCAPES/blob/main/quickstart/tutorial_full.ipynb">
+          <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Full Tutorial">
+        </a>
+      </td>
+    </tr>
+  </table>
+</div>
+
+            <p class="paper-abstract">
+                Once trained, you can import your model to the demo pressing the "+" symbol and following the instructions.
+            </p>
+            <figure>
+                <img src="assets/img/SCAPES_add_model.png" alt="Model import interface" style="max-width: 480px;">
+                <figcaption>Model import interface screenshot.</figcaption>
+            </figure>
+            <p class="paper-abstract">
+                You can also run everything locally by downloading the checkpoints from our HuggingFace model repository and the source code in our GitHub repository.
+            </p>
+            <div style="text-align: center; margin: 1rem 0;">
+                <a href="https://huggingface.co/cordutie/SCAPES-models"><img src="https://img.shields.io/badge/%F0%9F%A4%97-Pretrained%20Weights-blue?style=for-the-badge" alt="Pretrained Weights"></a>
+            </div>
+            <div class="button-group" style="margin-top: 0.5rem;">
+                <a href="https://github.com/cordutie/SCAPES"><img src="https://img.shields.io/badge/Repository-black?logo=github&logoColor=white&style=for-the-badge" alt="GitHub"></a>
+            </div>
         </div>
     </div>
 
     <!-- SOUND EXAMPLES -->
-    <div class="section section-white section-vcentered" id="examples">
+    <div class="section section-lino" id="examples">
         <div class="box">
             <h1>Sound Examples</h1>
             <p class="paper-abstract">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies aliquam, nunc nisl aliquet nunc, vitae aliquam nisl nunc vitae nisl.
+                Explore SCAPES across three tasks: <b>resynthesis</b>, <b>semantic generation</b>, and <b>interpolation</b>. Select a sound class using the emoji buttons below to hear the original alongside the model's output.
             </p>
+
+            <hr>
+
+            <div id="demo-resynthesis">
+                <h2>Resynthesis</h2>
+                <p>The model reconstructs the input sound from its continuous latent representation.</p>
+                <div class="emoji-selector"></div>
+                <div class="audio-pair">
+                    <div class="audio-slot audio-original">
+                        <span class="audio-label">Original</span>
+                        <audio controls preload="auto"></audio>
+                    </div>
+                    <div class="audio-slot audio-processed">
+                        <span class="audio-label">Resynthesized</span>
+                        <audio controls preload="auto"></audio>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div id="demo-generation">
+                <h2>Semantic Generation</h2>
+                <p>The model generates a new sound from scratch, conditioned only on the class label embedding.</p>
+                <div class="emoji-selector"></div>
+                <div class="audio-pair">
+                    <div class="audio-slot audio-original">
+                        <span class="audio-label">Original</span>
+                        <audio controls preload="auto"></audio>
+                    </div>
+                    <div class="audio-slot audio-processed">
+                        <span class="audio-label">Generated</span>
+                        <audio controls preload="auto"></audio>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div id="demo-interpolation">
+                <h2>Semantic Interpolation</h2>
+                <p>The model smoothly transitions between two sound classes through the latent space. Select a source and a target class.</p>
+                <div class="interp-selectors">
+                    <div class="interp-selector-group">
+                        <span class="interp-selector-label">From</span>
+                        <div class="emoji-selector emoji-selector-from"></div>
+                    </div>
+                    <div class="interp-arrow">→</div>
+                    <div class="interp-selector-group">
+                        <span class="interp-selector-label">To</span>
+                        <div class="emoji-selector emoji-selector-to"></div>
+                    </div>
+                </div>
+                <div class="audio-pair">
+                    <div class="audio-slot interp-player">
+                        <span class="audio-label">Select two different classes</span>
+                        <audio controls preload="auto"></audio>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -96,6 +238,7 @@
     <!-- SCRIPTS -->
     <script src="assets/js/dev-toggle.js"></script>
     <script src="assets/js/bibtex-loader.js"></script>
+    <script src="assets/js/audio-demo.js"></script>
 </body>
 
 </html>

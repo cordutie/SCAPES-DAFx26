@@ -624,3 +624,149 @@ hr {
     opacity: 0.15;
     margin: 1.5rem 0;
 }
+
+/* AUDIO DEMO STYLES */
+.emoji-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.emoji-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem 0.6rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    min-width: 56px;
+}
+
+.emoji-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.emoji-btn.active {
+    border-color: var(--castanya);
+    background: rgba(180, 69, 72, 0.12);
+    box-shadow: 0 0 0 1px var(--castanya);
+}
+
+.emoji-btn .emoji {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.emoji-btn .emoji-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+.emoji-btn.active .emoji-label {
+    opacity: 1;
+    color: var(--castanya);
+}
+
+.audio-pair {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.audio-slot {
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.audio-slot .audio-label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+}
+
+.audio-slot audio {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.audio-slot.interp-player.invalid {
+    outline: 2px dashed var(--castanya);
+    outline-offset: 2px;
+}
+
+.interp-selectors {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.interp-selector-group {
+    flex: 1;
+    min-width: 0;
+}
+
+.interp-selector-label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.5;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.interp-arrow {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--castanya);
+    align-self: center;
+    padding-top: 1.5rem;
+    flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+    .interp-selectors {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .interp-arrow {
+        text-align: center;
+        padding: 0;
+        transform: rotate(90deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .emoji-btn {
+        min-width: 44px;
+        padding: 0.4rem;
+    }
+
+    .emoji-btn .emoji {
+        font-size: 1.3rem;
+    }
+
+    .emoji-btn .emoji-label {
+        font-size: 0.55rem;
+    }
+}
