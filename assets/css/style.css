@@ -488,6 +488,17 @@ a:hover {
     background-color: #c78d8a;
 }
 
+.button-castanya {
+    background-color: var(--castanya);
+    border-color: var(--castanya);
+    color: var(--white);
+    border-radius: 4px;
+}
+
+.button-castanya:hover {
+    background-color: #b44548;
+}
+
 .button-lino {
     background-color: var(--lino);
     border-color: var(--black);
@@ -626,6 +637,11 @@ hr {
 }
 
 /* AUDIO DEMO STYLES */
+#demo img[src*="shields.io"],
+#demo img[src*="colab-badge"] {
+    height: 32px;
+    width: auto;
+}
 .emoji-selector {
     display: flex;
     flex-wrap: wrap;
